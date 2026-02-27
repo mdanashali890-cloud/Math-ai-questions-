@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Tutor AI</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f6f4;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* CENTER SECTION */
+.center-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  background: #e7ece7;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #6b7280;
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+/* SUGGESTION BUTTONS */
+.suggestion {
+  width: 260px;
+  padding: 14px;
+  margin: 8px 0;
+  border-radius: 14px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.suggestion:hover {
+  transform: scale(1.03);
+}
+
+/* BOTTOM INPUT */
+.input-bar {
+  padding: 12px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+}
+
+.attach {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.send-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #8bb8b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-screen" id="homeScreen">
+  <div class="logo">🧮</div>
+  <h1>Math Tutor AI</h1>
+  <div class="subtitle">
+    Your step-by-step math companion. Type any problem and I'll walk you through the solution.
+  </div>
+
+  <div class="suggestion" onclick="fillExample('Solve 2x + 5 = 13')">
+    📟 Solve 2x + 5 = 13
+  </div>
+
+  <div class="suggestion" onclick="fillExample('What is 30% of 250?')">
+    📘 What is 30% of 250?
+  </div>
+
+  <div class="suggestion" onclick="fillExample('x^2 + 5x + 6 = 0')">
+    💡 x² + 5x + 6 = 0
+  </div>
+</div>
+
+<div class="input-bar">
+  <div class="attach">📎</div>
+  <input type="text" id="message" placeholder="Type a math problem or attach an image">
+  <div class="send-btn" onclick="sendMessage()">➤</div>
+</div>
+
+<script>
+function fillExample(text) {
+  document.getElementById("message").value = text;
+}
+
+function sendMessage() {
+  const text = document.getElementById("message").value;
+  if (!text) return;
+
+  alert("Send to backend: " + text);
+
+  document.getElementById("homeScreen").style.display = "none";
+}
+</script>
+
+</body>
+</html>
